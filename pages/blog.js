@@ -1,12 +1,34 @@
-import Link from 'next/link';
 import Layout from '../components/Layout';
+import Entrada from '../components/Entrada';
+import styles from '../styles/Blog.module.css';
 
-const Blog = () => {
+const Blog = ({entradasBlog}) => {
   return (
     <Layout pagina="Blog">
-      <h1 className="heading">Blog</h1>
+      <main className='contenedor'>
+        <h2 className="heading">Blog</h2>
+        <div className={styles.blog}>
+          {entradasBlog.map(entrada => (
+            <Entrada
+              key={entrada.id}
+              entrada={entrada}
+            />
+          ))}
+        </div>
+      </main>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const url = 'http://localhost:1337/blogs';
+  const respuesta = await fetch(url);
+  const entradasBlog = await respuesta.json();
+  return {
+    props: {
+      entradasBlog
+    }
+  }
+}
 
 export default Blog;

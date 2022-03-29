@@ -7,12 +7,11 @@ const Header = () => {
     <header className={styles.header}>
       <div className="contenedor">
         <div className={styles.barra}>
-      
-            <Link href="/">
-              <Image src="/img/logo.svg" alt="Logo" width={400} height={100} />
-            </Link>
-         
-
+          <Link href="/">
+            <a>
+             <Image src="/img/logo.svg" alt="Logo" width={400} height={100} />
+            </a>
+          </Link>
           <nav className={styles.navegacion}>
             <Link href="/">Inicio</Link>
             <Link href="/nosotros">Nosotros</Link>
