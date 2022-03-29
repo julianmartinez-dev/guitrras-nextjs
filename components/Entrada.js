@@ -10,6 +10,7 @@ const Entrada = ({entrada}) => {
       titulo,
       resumen,
       imagen,
+      url,
       published_at : fecha,
     } = entrada;
 
@@ -28,7 +29,7 @@ const Entrada = ({entrada}) => {
         <p className={styles.fecha}>{formatearFecha(fecha)}</p>
         <p className={styles.resumen}>{resumen}</p>
 
-        <Link href={`/blog/${id}`}>
+        <Link href={`/blog/${url}`}>
           <a className={styles.enlace}>
               Leer entrada
           </a>

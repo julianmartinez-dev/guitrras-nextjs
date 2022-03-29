@@ -1,3 +1,8 @@
+.entrada{
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 .contendio{
     padding: 2rem;
 }
@@ -9,7 +14,8 @@
 }
 .fecha{
     font-size: 1.6rem;
-    color: var(--primary)
+    color: var(--primary);
+    font-weight: bold;
 }
 
 .resumen{
@@ -36,4 +42,8 @@
 .enlace:hover{
     background-color: var(--primary);
     color: var(--blanco)
+}
+
+.texto{
+    white-space: pre-wrap;
 }
