@@ -1,20 +1,13 @@
 import Layout from '../components/Layout';
-import Entrada from '../components/Entrada';
-import styles from '../styles/Blog.module.css';
+import ListadoBlog from '../components/ListadoBlog';
 
-const Blog = ({entradasBlog}) => {
+const Blog = ({entradas}) => {
   return (
     <Layout pagina="Blog">
       <main className='contenedor'>
-        <h2 className="heading">Blog</h2>
-        <div className={styles.blog}>
-          {entradasBlog.map(entrada => (
-            <Entrada
-              key={entrada.id}
-              entrada={entrada}
-            />
-          ))}
-        </div>
+        <ListadoBlog
+          entradas={entradas}
+        />
       </main>
     </Layout>
   );
@@ -23,10 +16,10 @@ const Blog = ({entradasBlog}) => {
 export async function getStaticProps() {
   const url = `${process.env.API_URL}/blogs?_sort=created_at:desc`;
   const respuesta = await fetch(url);
-  const entradasBlog = await respuesta.json();
+  const entradas = await respuesta.json();
   return {
     props: {
-      entradasBlog
+      entradas
     }
   }
 }
